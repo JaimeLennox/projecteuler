@@ -1,0 +1,66 @@
+program Problem3;
+
+{$APPTYPE CONSOLE}
+
+uses
+  SysUtils;
+
+var
+  c,d:integer;
+
+const
+  m:int64=6008514751;
+
+function prime(a:real):boolean;
+var
+  n,o:real;
+  count:integer;
+begin
+  prime:=true;
+  n:=sqrt(a);
+  for count := 2 to trunc(n) do
+  begin
+    o:=round(a / count);
+    if a = (o * count) then
+    begin
+    prime:=false;
+    end;
+  end;
+end;
+
+procedure factors(b:int64);
+var
+  a:integer;
+begin
+  for a := 2 to b do
+  begin
+    if b mod a = 0 then
+    if prime(a) = true then
+    begin
+      writeln(a);
+      c:=c*a;
+    end;
+  end;
+end;
+
+procedure factors2;
+begin
+  if m div c <> 1 then
+  begin
+    d:=m div c;
+    factors(d);
+  end;
+end;
+
+begin
+  c:=1;
+  factors(m);
+  repeat
+  factors2;
+  until m div c = 1;
+  writeln('Done!');
+  readln;
+end.
+
+
+

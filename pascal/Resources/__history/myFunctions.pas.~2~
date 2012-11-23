@@ -1,0 +1,33 @@
+unit myFunctions;
+
+interface
+
+implementation
+
+function prime(a:real):boolean;
+var
+  n,o:real;
+  count:integer;
+begin
+  prime:=true;
+  n:=sqrt(a);
+  for count := 2 to trunc(n) do
+  begin
+    o:=round(a / count);
+    if a = (o * count) then
+    begin
+    prime:=false;
+    end;
+  end;
+end;
+
+function power(mantissa,exponent:integer):int64;
+var
+  a,i:integer;
+begin
+  a:=1;
+  for i := 1 to exponent do
+  a:=a*mantissa;
+  power:=a;
+end;
+end.

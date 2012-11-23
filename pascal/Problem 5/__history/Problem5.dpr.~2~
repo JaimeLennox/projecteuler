@@ -1,0 +1,29 @@
+program Problem5;
+
+{$APPTYPE CONSOLE}
+
+uses
+  SysUtils;
+
+const
+  divisor:integer=10;
+
+var
+  i,j,k:integer;
+
+begin
+  i:=1;
+  j:=1;
+  while i <= divisor do
+  begin
+    if j mod i = 0 then
+    inc(i)
+    else
+    begin
+      i:=1;
+      inc(j);
+    end;
+  end;
+  writeln(j);
+  readln;
+end.

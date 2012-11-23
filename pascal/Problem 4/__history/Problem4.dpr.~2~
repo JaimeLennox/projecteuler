@@ -1,0 +1,19 @@
+program Problem4;
+
+{$APPTYPE CONSOLE}
+
+uses
+  SysUtils;
+
+var
+  a:integer=999;
+  i,j:integer;
+
+begin
+  for i := 100 to a do
+  for j := 100 to i do
+  if i*j =  then
+  
+    
+    
+end.

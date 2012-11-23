@@ -1,0 +1,86 @@
+program Problem12;
+
+{$APPTYPE CONSOLE}
+
+uses
+  SysUtils;
+
+var
+  j,c,x:integer;
+  i:integer;
+
+{function CheckFactors(a:integer):integer;
+var
+  k,c:integer;
+begin
+  c:=0;
+  for k := 1 to a do
+  if a mod k = 0 then
+  inc(c);
+  CheckFactors:=c;
+end;}
+
+function prime(a:real):boolean;
+var
+  n,o:real;
+  count:integer;
+begin
+  prime:=true;
+  n:=sqrt(a);
+  for count := 2 to trunc(n) do
+  begin
+    o:=round(a / count);
+    if a = (o * count) then
+    begin
+    prime:=false;
+    end;
+  end;
+end;
+
+procedure factors(b:int64);
+var
+  a:integer;
+  n:real;
+begin
+  n:=sqrt(b);
+  for a := 2 to trunc(n) do
+  begin
+    if b mod a = 0 then
+    if prime(a) = true then
+    begin
+      inc(x);
+      c:=c*a;
+    end;
+  end;
+end;
+
+procedure factors2(m:integer);
+var
+  d:integer;
+begin
+  if m / c <> 1 then
+  begin
+    d:=m div c;
+    factors(d);
+  end;
+end;
+
+function CheckFactors(a:integer):integer;
+begin
+  factors(a);
+  repeat
+    factors2(a);
+  until i/c = 1;
+end;
+
+begin
+  i:=1;
+  j:=2;
+  while CheckFactors(i) < 500 do
+  begin
+    i:=i+j;
+    inc(j);
+  end;
+  writeln(i);
+  readln;
+end.

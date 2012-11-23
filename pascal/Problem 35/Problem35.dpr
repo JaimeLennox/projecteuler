@@ -1,0 +1,77 @@
+program Problem35;
+
+{$APPTYPE CONSOLE}
+
+uses
+  SysUtils;
+
+var
+  i,count:integer;
+
+const
+  max:integer=1000000;
+
+function prime(a:real):boolean;
+var
+  n,o:real;
+  count:integer;
+begin
+  prime:=true;
+  n:=sqrt(a);
+  for count := 2 to trunc(n) do
+  begin
+    o:=round(a / count);
+    if a = (o * count) then
+    begin
+    prime:=false;
+    end;
+  end;
+end;
+
+function rotation(i:integer):boolean;
+var
+  l,k,c,d,p:integer;
+  temp,temp2:string;
+begin
+p:=0;
+rotation:=false;
+temp:=inttostr(i);
+if length(temp) = 1 then
+rotation:=true
+  else
+  begin
+    for l := 1 to length(temp) - 1 do
+    begin
+      c:=0;
+      k:=l;
+      temp2:='';
+      repeat
+        inc(k);
+        temp2:=temp2+temp[k];
+        inc(c);
+      until k = length(temp);
+      for d := 1 to length(temp) - c do
+      begin
+        temp2:=temp2+temp[d];
+      end;
+      if prime(strtoint(temp2)) then
+      rotation:=true
+      else p:=1;
+    end;
+  end;
+if p = 1 then
+rotation:=false;
+end;
+
+begin
+count:=0;
+for i := 2 to max do
+if prime(i)then
+  if rotation(i) then
+  begin
+    writeln(i);
+    inc(count);
+  end;
+writeln('There are ',count,' circular primes below ',max,'.');
+readln;
+end.

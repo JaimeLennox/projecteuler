@@ -1,0 +1,40 @@
+program Problem52;
+
+{$APPTYPE CONSOLE}
+
+uses
+  SysUtils;
+
+var
+  i:int64;
+  finish:boolean;
+  
+{function checkNum(a:int64):boolean;
+var
+	
+  str,str2:string;
+begin
+  str:=inttostr(a);
+  repeat
+  for j:=1 to length(str) do
+  
+  
+  
+  
+end;}
+
+function checkNum(a:int64):boolean;
+var
+  str:string;
+begin
+  str:=inttostr(a);
+  checkNum:=
+end;
+  
+begin
+  i:=0;
+  repeat
+  inc(i);
+  
+  until finish;
+end.

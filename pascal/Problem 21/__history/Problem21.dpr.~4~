@@ -1,0 +1,53 @@
+program Problem21;
+
+{
+Let d(n) be defined as the sum of proper divisors of n (numbers less than n which divide evenly into n).
+If d(a) = b and d(b) = a, where a  b, then a and b are an amicable pair and each of a and b are called amicable numbers.
+
+For example, the proper divisors of 220 are 1, 2, 4, 5, 10, 11, 20, 22, 44, 55 and 110; therefore d(220) = 284. The proper divisors of 284 are 1, 2, 4, 71 and 142; so d(284) = 220.
+
+Evaluate the sum of all the amicable numbers under 10000.
+}
+
+{$APPTYPE CONSOLE}
+
+uses
+  SysUtils;
+
+const
+  max:integer=10000;
+
+var
+  i,j,n,a,b,c,d:integer;
+
+begin
+  a:=0;
+  b:=0;
+  d:=0;
+  for n := 2 to max - 1 do
+  begin
+    for i := 1 to n - 1 do
+    begin
+      if n mod i = 0 then
+      a:=a+i;
+    end;
+      for j := 1 to a - 1 do
+      if a mod j = 0 then
+      b:=b+j;
+      if b = n then
+      begin
+      if a = b then  //eliminate perfect numbers
+      begin
+        a:=0;
+        b:=0;
+      end;
+      c:=a+b;
+      d:=d+c;
+      end;
+      a:=0;
+      b:=0;
+  end;
+  d:=d div 2;  //amicable pairs have been counted twice; opposite way round
+  writeln(d);
+  readln;
+end.

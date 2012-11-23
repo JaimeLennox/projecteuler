@@ -1,0 +1,88 @@
+program Problem19;
+
+{$APPTYPE CONSOLE}
+
+uses
+  SysUtils;
+
+var
+  day,month,year:integer;
+  i,counter:integer;
+  daynames:array[1..7] of integer;
+  currentday:integer;
+
+begin
+
+  for i := 1 to 7 do
+  daynames[i]:=i;
+
+  counter:=0;
+  day:=1;
+  month:=1;
+  year:=1900;
+  currentday:=1;
+
+  repeat
+
+  inc(day);
+  inc(currentday);
+
+  if (month = 4) OR (month = 6) OR (month = 9) OR (month = 11) then
+  begin
+    if day = 31 then
+    begin
+      inc(month);
+      day:=1;
+    end;
+  end
+  else if month = 2 then
+  begin
+    if (year mod 4 = 0) AND (year mod 100 <> 0) then
+    begin
+      if day = 30 then
+      begin
+        inc(month);
+        day:=1;
+      end;
+    end
+    else if year mod 400 = 0 then
+    begin
+      if day = 30 then
+      begin
+        inc(month);
+        day:=1;
+      end;
+    end
+    else if day = 29 then
+    begin
+      inc(month);
+      day:=1;
+    end;
+  end
+  else if day = 32 then
+  begin
+    inc(month);
+    day:=1;
+  end;
+
+  if month = 13 then
+  begin
+    inc(year);
+    month:=1;
+  end;
+
+  if currentday = 8 then
+  currentday:=1;
+
+  if (currentday = 7) AND (day = 1) AND (year <> 1900) then
+  inc(counter);
+
+//  writeln(day,'/',month,'/',year);
+//  writeln(currentday);
+
+  until year = 2001;
+
+  writeln(counter);
+  readln;
+
+end.

@@ -1,0 +1,43 @@
+program SieveOfEratosthenes;
+
+{Checks if a number is prime by using the Sieve of Eratosthenes?}
+
+{$APPTYPE CONSOLE}
+
+uses
+  SysUtils;
+
+const
+  limit:integer=500;
+
+var
+  num:integer;
+
+function SoE(n:real):boolean;
+var
+  i,j,a:integer;
+  prime:array[1..limit] of integer;
+begin
+  i:=2;
+  a:=2*i;
+  while i < limit do
+  begin
+    while a <= limit do
+    begin
+      prime[a]:=0;
+      a:=a+i;
+    end;
+    while j = 0 do
+    begin
+
+    end;
+  end;
+
+end;
+
+begin
+{readln(num);
+if SoE(num) then
+writeln('This number is prime.')
+else writeln('This number is not prime.');}
+end.

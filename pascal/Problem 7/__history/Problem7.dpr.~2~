@@ -1,0 +1,27 @@
+program Problem7;
+
+{$APPTYPE CONSOLE}
+
+uses
+  SysUtils;
+
+function prime(a:real):boolean;
+var
+  n,o:real;
+  count:integer;
+begin
+  prime:=true;
+  n:=sqrt(a);
+  for count := 2 to trunc(n) do
+  begin
+    o:=round(a / count);
+    if a = (o * count) then
+    begin
+    prime:=false;
+    end;
+  end;
+end;
+
+begin
+
+end.

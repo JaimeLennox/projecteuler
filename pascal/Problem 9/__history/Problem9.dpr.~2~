@@ -1,0 +1,19 @@
+program Problem9;
+
+{$APPTYPE CONSOLE}
+
+uses
+  SysUtils;
+
+var
+  a,b:integer;
+  ans:integer;
+
+begin
+  for a := 1 to 1000 do
+    begin
+      for b := 1 to 1000 do
+        if sqrt(sqr(a)*sqr(b)) = 1000 then
+        ans:=sqrt(sqr(a)*sqr(b));
+    end;
+end.

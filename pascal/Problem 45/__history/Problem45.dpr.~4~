@@ -1,0 +1,33 @@
+program Problem45;
+
+{$APPTYPE CONSOLE}
+
+uses
+  SysUtils;
+
+var
+  TriArray,PentArray,HexArray:array[1..1000] of integer;
+  i,j,k:integer;
+
+procedure fillArrays;
+var
+  n:integer;
+begin
+  for n := 1 to 1000 do
+  begin
+    TriArray[n]:=(n*(n+1)) div 2;
+    PentArray[n]:=(n*(3*n-1)) div 2;
+    HexArray[n]:=n*(2*n-1);
+  end;
+end;
+
+begin
+  fillArrays;
+  for i := 1 to 1000 do
+  for j := 1 to 1000 do
+  if TriArray[i] = PentArray[j] then
+  for k := 1 to 1000 do
+  if TriArray[i] = HexArray [k] then
+  writeln(i);
+  readln;
+end.

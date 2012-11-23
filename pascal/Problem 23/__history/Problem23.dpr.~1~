@@ -1,0 +1,10 @@
+program Problem23;
+
+{$APPTYPE CONSOLE}
+
+uses
+  SysUtils;
+
+begin
+
+end.

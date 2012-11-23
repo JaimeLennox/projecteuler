@@ -1,0 +1,1 @@
+Ctrl-F, search for 9, find largest number of consecutive numbers beginning with 9.

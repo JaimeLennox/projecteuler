@@ -1,0 +1,55 @@
+program Problem13;
+
+{$APPTYPE CONSOLE}
+
+uses
+  SysUtils;
+
+var
+  i,count,overflownum,sum:integer;
+  overflowstr,temp,temp2,temp3:string;
+  numarray:array[1..100] of string;
+  sumarray:array[1..50] of integer;
+  numfile:textfile;
+
+begin
+  count:=0;
+  for i := 1 to 50 do
+  sumarray[i]:=0;
+  assignfile(numfile,'numbers.txt');
+  reset(numfile);
+  while not eof(numfile) do
+  begin
+    inc(count);
+    readln(numfile,numarray[count]);
+  end;
+  closefile(numfile);
+  count:=50;
+  overflowstr:='0';
+  repeat
+    for i := 1 to 100 do
+    begin
+      temp:=numarray[i];
+      sumarray[count]:=sumarray[count]+strtoint(temp[count]);
+    end;
+    sumarray[count]:=sumarray[count]+strtoint(overflowstr[length(overflowstr)]);
+    overflownum:=sumarray[count];
+    temp3:=inttostr(sumarray[count]);
+    overflownum:=(overflownum-strtoint(temp3[length(temp3)])) div 10;
+    overflowstr:=inttostr(overflownum);
+    temp2:=inttostr(sumarray[count]);
+    temp2:=temp2[length(temp2)];
+    sumarray[count]:=strtoint(temp2);
+    count:=count-1;
+  until count = 0;
+  sum:=0;
+  for i := 1 to length(overflowstr) do
+  sum:=sum+strtoint(overflowstr[i]);
+  for i := 1 to 10 - length(overflowstr) do
+  begin
+    writeln(sumarray[i]);
+    sum:=sum+sumarray[i];
+  end;
+  writeln('The sum of the first ten digits is ',sum,'.');
+  readln;
+  end.

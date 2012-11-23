@@ -1,0 +1,39 @@
+program Problem13;
+
+{$APPTYPE CONSOLE}
+
+uses
+  SysUtils;
+
+var
+  i,j,sum:integer;
+  count:integer;
+  numfile:textfile;
+  numarrstr:array[1..100] of string;
+  calcarr:array[1..50] of string;
+  overflowarr:array[1..50] of integer;
+  sumstr,overflowstr:string;
+begin
+  //read each line into an array
+  count:=0;
+  assignfile(numfile,'numbers.txt');
+  reset(numfile);
+  while not eof(numfile) do
+  begin
+    inc(count);
+    readln(numfile,numarrstr[count]);
+  end;
+  closefile(numfile);
+  //add column of digits
+  sumstr:='';
+  for i := 1 to 100 do
+    begin
+      sumstr:=sumstr+numarrstr[i][50];
+      //calculate overflow
+      for j := 1 to 2 do
+        overflowstr:=overflowstr+sumstr[j];
+
+
+    end;
+
+end.

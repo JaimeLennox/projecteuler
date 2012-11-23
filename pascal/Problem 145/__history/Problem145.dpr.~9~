@@ -1,0 +1,53 @@
+program Problem145;
+
+{$APPTYPE CONSOLE}
+
+uses
+  SysUtils;
+
+var
+  n,i,count:integer;
+
+function checkOdd(a:string):boolean;
+var
+  i:integer;
+begin
+  checkOdd:=true;
+  for i := 1 to length(a) do
+  if strtoint(a[i]) mod 2 = 0 then
+  begin
+    checkOdd:=false;
+    break;
+  end;
+end;
+
+function CheckReversible(a:integer):boolean;
+var
+  i,d:integer;
+  b,c:string;
+begin
+  c:='';
+  b:=inttostr(a);
+  for i := 0 to length(b)-1 do
+  c:=b[length(b)-i]+c;
+  if c[1] = '0' then
+  checkReversible:=false
+  else
+  begin
+    d:=strtoint(c);
+    if checkOdd(inttostr(a+d)) then
+    CheckReversible:=True
+    else checkReversible:=false;
+  end;
+
+end;
+
+begin
+  count:=0;
+  readln(n);
+  for i := 1 to n-1 do
+  if checkReversible(i) then
+  inc(count);
+  writeln(count);
+  readln;
+end.

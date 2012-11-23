@@ -1,0 +1,25 @@
+program Problem13;
+
+{$APPTYPE CONSOLE}
+
+uses
+  SysUtils;
+
+var
+  count:integer;
+  numfile:textfile;
+  numarraystr:array[1..100] of string;
+begin
+  //
+  count:=0;
+  assignfile(numfile,'numbers.txt');
+  reset(numfile);
+  while not eof(numfile) do
+  begin
+    inc(count);
+    readln(numfile,numarraystr[count]);
+  end;
+  closefile(numfile);
+
+
+end.

@@ -1,0 +1,25 @@
+program Problem8;
+
+{$APPTYPE CONSOLE}
+
+uses
+  SysUtils;
+
+var
+  num:string[5];
+  num2:integer;
+  number: file of integer;
+  i:integer;
+
+begin
+  num:='';
+  assignfile(number,'number.txt');
+  reset(number);
+  seek(number,5);
+  read(number,num2);
+  num:=inttostr(num2);
+  closefile(number);
+  writeln(num);
+  readln;
+
+end.

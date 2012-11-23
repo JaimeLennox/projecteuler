@@ -1,0 +1,32 @@
+program Problem5;
+
+{
+2520 is the smallest number that can be divided by each of the numbers from 1 to 10 without any remainder.
+What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?
+}
+
+{$APPTYPE CONSOLE}
+
+uses
+  SysUtils;
+
+var
+  i,j,k,divisor:integer;
+
+begin
+  readln(divisor);
+  i:=1;
+  j:=1;
+  while i <= divisor do
+  begin
+    if j mod i = 0 then
+    inc(i)
+    else
+    begin
+      i:=1;
+      inc(j);
+    end;
+  end;
+  writeln(j);
+  readln;
+end.

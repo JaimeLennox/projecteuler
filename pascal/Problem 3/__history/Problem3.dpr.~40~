@@ -1,0 +1,48 @@
+program Problem3;
+
+{$APPTYPE CONSOLE}
+
+uses
+  SysUtils;
+
+var
+  i:integer;
+
+const
+  m:extended=600851475143;
+
+function prime(a:extended):boolean;
+var
+  n,o:real;
+  count:integer;
+begin
+  prime:=true;
+  n:=sqrt(a);
+  for count := 2 to round(n) do
+  begin
+    o:=round(a / count);
+    if a = (o * count) then
+    begin
+    prime:=false;
+    writeln(count);
+    end;
+  end;
+end;
+
+procedure run (l:extended);
+begin
+  for i := 2 to l do
+  begin
+    if l mod i = 0 then
+    if prime(i) = true then
+    writeln(i);
+  end;
+  readln;
+end;
+
+begin
+run;
+end.
+
+
+

@@ -1,0 +1,39 @@
+program Problem7;
+
+{$APPTYPE CONSOLE}
+
+uses
+  SysUtils;
+
+var
+  h,i,j:integer;
+
+function prime(a:real):boolean;
+var
+  n,o:real;
+  count:integer;
+begin
+  prime:=true;
+  n:=sqrt(a);
+  for count := 2 to trunc(n) do
+  begin
+    o:=round(a / count);
+    if a = (o * count) then
+    begin
+    prime:=false;
+    end;
+  end;
+end;
+
+begin
+  readln(h);
+  j:=0;
+  i:=1;
+  while j <= h do
+  begin
+    if prime(i) = true then inc(j);
+    inc(i);
+  end;
+  writeln(i-1);
+  readln;
+end.

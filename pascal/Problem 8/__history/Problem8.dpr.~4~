@@ -1,0 +1,27 @@
+program Problem8;
+
+{$APPTYPE CONSOLE}
+
+uses
+  SysUtils;
+
+var
+  num:array [1..5] of string;
+  num2:integer;
+  number: textfile;
+  i:integer;
+
+begin
+  i:=1;
+  assignfile(number,'number.txt');
+  reset(number);
+  while not eof(number) do
+  begin
+    readln(number,num[i]);
+    inc(i);
+  end;
+  closefile(number);
+  for i := 1 to 5 do
+  writeln(num[i]);
+  readln;
+end.

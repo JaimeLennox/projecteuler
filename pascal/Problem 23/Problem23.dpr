@@ -1,0 +1,36 @@
+program Problem23;
+
+{$APPTYPE CONSOLE}
+
+uses
+  SysUtils;
+
+var
+  i,count:integer;
+  abundArray:array[1..28123] of integer;
+  abundSumArray:array[1..100000] of integer;
+
+function checkAbundant(a:integer):boolean;
+var
+  i,sum:integer;
+begin
+  sum:=0;
+  for i := 1 to (a div 2) do
+  if a mod i = 0 then
+  sum:=sum+i;
+  if sum > a then
+  checkAbundant:=true
+  else checkAbundant:=false;
+end;
+
+begin
+  count:=1;
+  for i := 1 to 28123 do
+  if checkAbundant[i] then
+  begin
+   abundArray[count]:=i;
+   inc(count);
+  end;
+
+
+end.

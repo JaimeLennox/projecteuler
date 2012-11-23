@@ -1,0 +1,44 @@
+program Problem45;
+
+{$APPTYPE CONSOLE}
+
+uses
+  SysUtils;
+
+var
+  n,q:integer;
+
+function checkHex(x:real):boolean;
+var
+  a:integer;
+begin
+  a:=trunc((sqrt(8*x +1)+1)) mod 4;
+  if a = 0 then
+  checkHex:=true
+  else checkHex:=false;
+end;
+
+function checkPent(x:real):boolean;
+var
+  a,b:integer;
+begin
+  a:=trunc((sqrt(24*x +1)+1)) mod 6;
+  b:=trunc((sqrt(24*x +1)+1)) div 6;
+  if (a = 0) and (b > 0) then
+  checkPent:=true
+  else checkPent:=false
+end;
+
+begin
+  q := 0;
+  n := 1;
+  repeat
+  if checkHex(n) then
+  if checkPent(n) then
+  q := 1;
+  inc(n);
+  until q =1;
+  n:=n-1;
+  writeln(2*n*n-n);
+  readln;
+end.

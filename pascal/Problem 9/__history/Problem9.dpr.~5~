@@ -1,0 +1,25 @@
+program Problem9;
+
+{$APPTYPE CONSOLE}
+
+uses
+  SysUtils;
+
+var
+  a,b:integer;
+  ans,temp:real;
+
+begin
+  for a := 1 to 1000 do
+    begin
+      for b := 1 to 1000 do
+        begin
+        temp:=sqrt(sqr(a)*sqr(b));
+          if temp = 1000 then
+          begin
+          writeln(a,b);
+          readln;
+          end;
+        end;
+    end;
+end.

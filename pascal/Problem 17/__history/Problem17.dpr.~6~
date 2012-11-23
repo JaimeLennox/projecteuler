@@ -1,0 +1,61 @@
+program Problem17;
+
+{$APPTYPE CONSOLE}
+
+uses
+  SysUtils;
+
+var
+  words:array[1..22] of string;
+  i,counter:integer;
+
+const
+  limit:integer=1000;
+
+begin
+  words[1]:='one';
+  words[2]:='two';
+  words[3]:='three';
+  words[4]:='four';
+  words[5]:='five';
+  words[6]:='six';
+  words[7]:='seven';
+  words[8]:='eight';
+  words[9]:='nine';
+  words[10]:='ten';
+  words[11]:='eleven';
+  words[12]:='twelve';
+  words[13]:='thir';
+  words[14]:='fif';
+  words[15]:='teen';
+  words[16]:='twen';
+  words[17]:='for';
+  words[18]:='ty';
+  words[19]:='hundred';
+  words[20]:='and';
+  words[21]:='thousand';
+
+  counter:=0;
+
+  for i := 1 to 9 do
+  counter:=counter + (limit div 10 - limit div 100)*length(words[i]);
+
+  for i := 10 to 14 do
+  counter:=counter + (limit div 100)*length(words[i]);
+
+
+  counter:=counter + (limit div 100)*length(words[15])*7;
+  counter:=counter + (limit div 100)*length(words[16]);
+  counter:=counter + (limit div 100)*length(words[17]);
+  counter:=counter + (limit div 100)*length(words[18])*8;
+
+  for i := 19 to 20 do
+  counter:=counter + length(words[i])*100*9;
+
+  counter:=counter + length(words[21]);
+  counter:=counter + length(words[1]);
+
+  writeln(counter);
+  readln;
+
+end.

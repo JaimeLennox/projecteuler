@@ -1,0 +1,21 @@
+program Problem22;
+
+{$APPTYPE CONSOLE}
+
+uses
+  SysUtils,
+  ULinkedListClass in 'ULinkedListClass.pas';
+
+var
+  names:textfile;
+  nameslist:TLList;
+
+begin
+  nameslist:=TLList.Create;
+  //add names to list
+  assignfile('names.txt',names);
+  reset(names);
+
+
+
+end.

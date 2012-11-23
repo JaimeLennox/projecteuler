@@ -1,0 +1,33 @@
+program Problem2;
+
+{$APPTYPE CONSOLE}
+
+uses
+  SysUtils;
+
+var
+  x,y,z:integer;
+
+const
+  m:integer=4000000;
+
+procedure Initialise;
+begin
+  x:=1;
+  y:=2;
+  writeln(x);
+  writeln(y);
+end;
+
+begin
+  Initialise;
+  while x < m do
+  begin
+    if x mod 2 = 0 then z:=z+x;
+    if y mod 2 = 0 then z:=z+y;
+    writeln(z);
+    x:=y+x;
+    y:=y+x;
+  end;
+  readln;
+end.

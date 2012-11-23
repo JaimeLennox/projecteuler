@@ -1,0 +1,32 @@
+program Problem2;
+
+{$APPTYPE CONSOLE}
+
+uses
+  SysUtils;
+
+var
+  i,x,y:integer;
+
+const
+  m:integer=20;
+
+procedure Initialise;
+begin
+  x:=1;
+  y:=2;
+  writeln(x);
+  writeln(y);
+end;
+
+begin
+  Initialise;
+  while y < m do
+  begin
+    x:=y+x;
+    writeln(x);
+    y:=y+x;
+    writeln(y);
+  end;
+  readln;
+end.

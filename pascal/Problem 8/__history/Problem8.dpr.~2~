@@ -1,0 +1,22 @@
+program Problem8;
+
+{$APPTYPE CONSOLE}
+
+uses
+  SysUtils;
+
+var
+  num:string[5];
+  number:textfile;
+  i:integer;
+
+begin
+  assignfile(number,'number.txt');
+  reset(number);
+  while not eof(number) do
+  begin
+    read
+  end;
+  closefile(number);
+
+end.

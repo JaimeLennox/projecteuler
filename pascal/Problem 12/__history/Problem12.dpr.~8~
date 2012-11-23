@@ -1,0 +1,32 @@
+program Problem12;
+
+{$APPTYPE CONSOLE}
+
+uses
+  SysUtils;
+
+var
+  i,j:integer;
+
+function CheckFactors(a:integer):integer;
+var
+  k,c:integer;
+begin
+  c:=0;
+  for k := 1 to a do
+  if a mod k = 0 then
+  inc(c);
+  CheckFactors:=c;
+end;
+
+begin
+  i:=1;
+  j:=2;
+  while CheckFactors(i) < 150 do
+  begin
+    i:=i+j;
+    inc(j);
+  end;
+  writeln(i);
+  readln;
+end.
